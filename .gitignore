@@ -12,3 +12,5 @@ plugins/**/cache/
 
 # OS
 .DS_Store
+
+versions/1.21.11
