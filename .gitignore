@@ -1,0 +1,14 @@
+# Server core
+paper.jar
+logs/
+
+# Worlds
+world*
+DIM*
+
+# Cache
+cache/
+plugins/**/cache/
+
+# OS
+.DS_Store
