@@ -17,7 +17,12 @@ settings:
   timeout-time: 60
   restart-on-crash: true
   restart-script: ./start.sh
+  save-user-cache-on-stop-only: false
+  bungeecord: false
+  sample-count: 12
   user-cache-size: 1000
+  netty-threads: 4
+  player-shuffle: 0
   attribute:
     maxAbsorption:
       max: 2048.0
@@ -27,20 +32,15 @@ settings:
       max: 1024.0
     attackDamage:
       max: 2048.0
-  netty-threads: 4
-  bungeecord: false
-  sample-count: 12
-  save-user-cache-on-stop-only: false
-  player-shuffle: 0
   moved-wrongly-threshold: 0.0625
   moved-too-quickly-multiplier: 10.0
 messages:
-  restart: Server is restarting
   whitelist: You are not whitelisted on this server!
   unknown-command: Unknown command. Type "/help" for help.
   server-full: The server is full!
   outdated-client: Outdated client! Please use {0}
   outdated-server: Outdated server! I'm still on {0}
+  restart: Server is restarting
 advancements:
   disable-saving: false
   disabled:
@@ -48,14 +48,31 @@ advancements:
 world-settings:
   default:
     below-zero-generation-in-existing-chunks: true
-    view-distance: default
+    zombie-aggressive-towards-villager: true
+    enable-zombie-pigmen-portal-spawns: true
+    merge-radius:
+      item: 0.5
+      exp: -1.0
     simulation-distance: default
-    mob-spawn-range: 8
-    unload-frozen-chunks: false
-    arrow-despawn-rate: 1200
-    trident-despawn-rate: 1200
+    view-distance: default
+    dragon-death-sound-radius: 0
+    end-portal-sound-radius: 0
+    hanging-tick-frequency: 100
+    wither-spawn-sound-radius: 0
+    hunger:
+      jump-walk-exhaustion: 0.05
+      jump-sprint-exhaustion: 0.2
+      combat-exhaustion: 0.1
+      regen-exhaustion: 6.0
+      swim-multiplier: 0.01
+      sprint-multiplier: 0.1
+      other-multiplier: 0.0
+    ticks-per:
+      hopper-transfer: 8
+      hopper-check: 1
+    hopper-amount: 1
+    hopper-can-load-chunks: false
     thunder-chance: 100000
-    nerf-spawner-mobs: false
     growth:
       cactus-modifier: 100
       cane-modifier: 100
@@ -79,11 +96,6 @@ world-settings:
       cavevines-modifier: 100
       glowberry-modifier: 100
       pitcherplant-modifier: 100
-    item-despawn-rate: 6000
-    max-tick-time:
-      tile: 50
-      entity: 50
-    max-tnt-per-tick: 100
     entity-tracking-range:
       players: 128
       animals: 96
@@ -91,6 +103,7 @@ world-settings:
       misc: 96
       display: 128
       other: 64
+    unload-frozen-chunks: false
     entity-activation-range:
       animals: 32
       monsters: 32
@@ -138,28 +151,15 @@ world-settings:
     seed-buriedtreasure: 10387320
     seed-mineshaft: default
     seed-stronghold: default
-    merge-radius:
-      exp: -1.0
-      item: 0.5
-    ticks-per:
-      hopper-transfer: 8
-      hopper-check: 1
-    hopper-amount: 1
-    hopper-can-load-chunks: false
-    hunger:
-      jump-walk-exhaustion: 0.05
-      jump-sprint-exhaustion: 0.2
-      combat-exhaustion: 0.1
-      regen-exhaustion: 6.0
-      swim-multiplier: 0.01
-      sprint-multiplier: 0.1
-      other-multiplier: 0.0
-    wither-spawn-sound-radius: 0
-    end-portal-sound-radius: 0
-    dragon-death-sound-radius: 0
-    hanging-tick-frequency: 100
-    zombie-aggressive-towards-villager: true
-    enable-zombie-pigmen-portal-spawns: true
+    max-tnt-per-tick: 100
+    max-tick-time:
+      tile: 50
+      entity: 50
+    item-despawn-rate: 6000
+    nerf-spawner-mobs: false
+    mob-spawn-range: 8
+    arrow-despawn-rate: 1200
+    trident-despawn-rate: 1200
     verbose: false
   worldeditregentempworld:
     verbose: false
@@ -167,16 +167,16 @@ players:
   disable-saving: false
 config-version: 12
 commands:
+  log: true
+  tab-complete: 0
+  send-namespaced: true
+  spam-exclusions:
+  - /skill
   replace-commands:
   - setblock
   - summon
   - testforblock
   - tellraw
-  spam-exclusions:
-  - /skill
-  tab-complete: 0
-  send-namespaced: true
-  log: true
   silent-commandblock-console: false
   enable-spam-exclusions: false
 stats:
